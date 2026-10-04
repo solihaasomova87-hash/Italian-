@@ -1,0 +1,1118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Italiano — 5 Language Vocabulary</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f8f5;
+    color: #24332b;
+    min-height: 100vh;
+}
+
+header {
+    text-align: center;
+    padding: 35px 20px 20px;
+}
+
+header h1 {
+    font-size: 38px;
+    margin-bottom: 8px;
+}
+
+header p {
+    color: #6b7c72;
+}
+
+.container {
+    width: 92%;
+    max-width: 1000px;
+    margin: auto;
+}
+
+/* Categories */
+
+.categories {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin: 25px 0;
+}
+
+.category {
+    background: white;
+    border: none;
+    border-radius: 18px;
+    padding: 22px 10px;
+    cursor: pointer;
+    font-size: 17px;
+    transition: 0.2s;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.category:hover {
+    transform: translateY(-3px);
+}
+
+.category.active {
+    background: #b9dfcc;
+}
+
+/* Main */
+
+#main {
+    display: none;
+}
+
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 25px 0 15px;
+    gap: 10px;
+}
+
+.back {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.mode-buttons {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.mode-buttons button {
+    border: none;
+    background: white;
+    padding: 10px 14px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.mode-buttons button.active {
+    background: #315f4c;
+    color: white;
+}
+
+/* Learn */
+
+.card {
+    background: white;
+    border-radius: 25px;
+    padding: 35px;
+    margin: 20px 0;
+    box-shadow: 0 6px 25px rgba(0,0,0,0.06);
+    text-align: center;
+}
+
+.italian {
+    font-size: 35px;
+    font-weight: bold;
+    margin-bottom: 25px;
+}
+
+.translation {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+}
+
+.translation div {
+    background: #f3f7f4;
+    padding: 15px 8px;
+    border-radius: 12px;
+}
+
+.translation span {
+    display: block;
+    font-size: 12px;
+    color: #809087;
+    margin-bottom: 5px;
+}
+
+/* Navigation */
+
+.nav {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 20px;
+}
+
+.nav button,
+.answer-btn,
+.next-btn,
+.restart-btn {
+    border: none;
+    border-radius: 12px;
+    padding: 13px 22px;
+    cursor: pointer;
+    background: #315f4c;
+    color: white;
+    font-size: 15px;
+}
+
+.nav button {
+    background: white;
+    color: #315f4c;
+}
+
+/* Quiz */
+
+.question {
+    text-align: center;
+    font-size: 28px;
+    font-weight: bold;
+    margin: 35px 0;
+}
+
+.question small {
+    display: block;
+    font-size: 14px;
+    font-weight: normal;
+    color: #7a8980;
+    margin-bottom: 10px;
+}
+
+.answers {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+.answer-btn {
+    background: white;
+    color: #24332b;
+    border: 2px solid transparent;
+}
+
+.answer-btn:hover {
+    border-color: #8fc5aa;
+}
+
+.answer-btn.correct {
+    background: #b9dfcc;
+    border-color: #4b9670;
+}
+
+.answer-btn.wrong {
+    background: #f2caca;
+    border-color: #c96c6c;
+}
+
+.result {
+    text-align: center;
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+/* Progress */
+
+.progress-box {
+    background: white;
+    padding: 20px;
+    border-radius: 18px;
+    margin: 20px 0;
+}
+
+.progress-bar {
+    height: 10px;
+    background: #e5ece8;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 10px;
+}
+
+.progress-fill {
+    height: 100%;
+    width: 0%;
+    background: #5e9d7b;
+}
+
+/* Home */
+
+.home-extra {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin-bottom: 40px;
+}
+
+.extra {
+    background: white;
+    padding: 25px;
+    border-radius: 18px;
+    cursor: pointer;
+}
+
+.extra h3 {
+    margin-bottom: 7px;
+}
+
+/* Mobile */
+
+@media(max-width: 650px) {
+    header h1 {
+        font-size: 30px;
+    }
+
+    .categories {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .translation {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .answers {
+        grid-template-columns: 1fr;
+    }
+
+    .topbar {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .card {
+        padding: 25px 15px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>ITALIANO 🇮🇹</h1>
+    <p>Learn Italian through 5 languages</p>
+</header>
+
+<div class="container">
+
+    <!-- HOME -->
+    <div id="home">
+
+        <div class="categories">
+
+            <button class="category" onclick="openCategory('fruits')">
+                🍎<br>Fruits
+            </button>
+
+            <button class="category" onclick="openCategory('animals')">
+                🐾<br>Animals
+            </button>
+
+            <button class="category" onclick="openCategory('body')">
+                🫀<br>Body Parts
+            </button>
+
+            <button class="category" onclick="openCategory('family')">
+                👨‍👩‍👧<br>Family
+            </button>
+
+            <button class="category" onclick="openCategory('colors')">
+                🎨<br>Colors
+            </button>
+
+            <button class="category" onclick="openCategory('professions')">
+                👩‍💼<br>Professions
+            </button>
+
+        </div>
+
+        <div class="home-extra">
+
+            <div class="extra" onclick="showMistakes()">
+                <h3>❌ Mistakes</h3>
+                <p>Review words you got wrong.</p>
+            </div>
+
+            <div class="extra" onclick="showProgress()">
+                <h3>📊 My Progress</h3>
+                <p>See how much you've learned.</p>
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- MAIN -->
+    <div id="main">
+
+        <div class="topbar">
+
+            <button class="back" onclick="goHome()">
+                ← Categories
+            </button>
+
+            <h2 id="categoryTitle"></h2>
+
+        </div>
+
+        <div class="mode-buttons">
+
+            <button onclick="setMode('learn')" id="learnBtn">
+                📖 Learn
+            </button>
+
+            <button onclick="setMode('quiz')" id="quizBtn">
+                🧠 Quiz
+            </button>
+
+            <button onclick="setMode('reverse')" id="reverseBtn">
+                🔄 Reverse
+            </button>
+
+            <button onclick="setMode('mix')" id="mixBtn">
+                🎲 Mix
+            </button>
+
+        </div>
+
+        <div id="content"></div>
+
+    </div>
+
+</div>
+
+
+<script>
+
+/* =========================
+   VOCABULARY DATABASE
+========================= */
+
+const vocabulary = {
+
+fruits: [
+
+{it:"la mela", en:"apple", ru:"яблоко", ko:"사과", ar:"تفاحة", read:"tuffāḥa"},
+{it:"la banana", en:"banana", ru:"банан", ko:"바나나", ar:"موزة", read:"mawza"},
+{it:"l'arancia", en:"orange", ru:"апельсин", ko:"오렌지", ar:"برتقالة", read:"burtuqāla"},
+{it:"il limone", en:"lemon", ru:"лимон", ko:"레몬", ar:"ليمونة", read:"laymūna"},
+{it:"la fragola", en:"strawberry", ru:"клубника", ko:"딸기", ar:"فراولة", read:"farāwila"},
+{it:"l'uva", en:"grape", ru:"виноград", ko:"포도", ar:"عنب", read:"ʿinab"},
+{it:"la pesca", en:"peach", ru:"персик", ko:"복숭아", ar:"خوخة", read:"khūkha"},
+{it:"la pera", en:"pear", ru:"груша", ko:"배", ar:"كمثرى", read:"kumathrā"},
+{it:"l'anguria", en:"watermelon", ru:"арбуз", ko:"수박", ar:"بطيخ", read:"baṭṭīkh"},
+{it:"il melone", en:"melon", ru:"дыня", ko:"멜론", ar:"شمامة", read:"shammāma"},
+{it:"l'ananas", en:"pineapple", ru:"ананас", ko:"파인애플", ar:"أناناس", read:"anānās"},
+{it:"il mango", en:"mango", ru:"манго", ko:"망고", ar:"مانجو", read:"mānjū"},
+{it:"il kiwi", en:"kiwi", ru:"киви", ko:"키위", ar:"كيوي", read:"kīwī"},
+{it:"la ciliegia", en:"cherry", ru:"вишня", ko:"체리", ar:"كرز", read:"karaz"},
+{it:"il cocco", en:"coconut", ru:"кокос", ko:"코코넛", ar:"جوز الهند", read:"jawz al-hind"}
+
+],
+
+animals: [
+
+{it:"il cane", en:"dog", ru:"собака", ko:"개", ar:"كلب", read:"kalb"},
+{it:"il gatto", en:"cat", ru:"кошка", ko:"고양이", ar:"قطة", read:"qiṭṭa"},
+{it:"il cavallo", en:"horse", ru:"лошадь", ko:"말", ar:"حصان", read:"ḥiṣān"},
+{it:"la mucca", en:"cow", ru:"корова", ko:"소", ar:"بقرة", read:"baqara"},
+{it:"la pecora", en:"sheep", ru:"овца", ko:"양", ar:"خروف", read:"kharūf"},
+{it:"la capra", en:"goat", ru:"коза", ko:"염소", ar:"ماعز", read:"māʿiz"},
+{it:"il maiale", en:"pig", ru:"свинья", ko:"돼지", ar:"خنزير", read:"khinzīr"},
+{it:"il coniglio", en:"rabbit", ru:"кролик", ko:"토끼", ar:"أرنب", read:"arnab"},
+{it:"il topo", en:"mouse", ru:"мышь", ko:"쥐", ar:"فأر", read:"fa'r"},
+{it:"il leone", en:"lion", ru:"лев", ko:"사자", ar:"أسد", read:"asad"},
+{it:"la tigre", en:"tiger", ru:"тигр", ko:"호랑이", ar:"نمر", read:"nimr"},
+{it:"l'elefante", en:"elephant", ru:"слон", ko:"코끼리", ar:"فيل", read:"fīl"},
+{it:"la giraffa", en:"giraffe", ru:"жираф", ko:"기린", ar:"زرافة", read:"zarāfa"},
+{it:"la scimmia", en:"monkey", ru:"обезьяна", ko:"원숭이", ar:"قرد", read:"qird"},
+{it:"l'orso", en:"bear", ru:"медведь", ko:"곰", ar:"دب", read:"dubb"}
+
+],
+
+body: [
+
+{it:"la testa", en:"head", ru:"голова", ko:"머리", ar:"رأس", read:"ra's"},
+{it:"il viso", en:"face", ru:"лицо", ko:"얼굴", ar:"وجه", read:"wajh"},
+{it:"l'occhio", en:"eye", ru:"глаз", ko:"눈", ar:"عين", read:"ʿayn"},
+{it:"l'orecchio", en:"ear", ru:"ухо", ko:"귀", ar:"أذن", read:"udhun"},
+{it:"il naso", en:"nose", ru:"нос", ko:"코", ar:"أنف", read:"anf"},
+{it:"la bocca", en:"mouth", ru:"рот", ko:"입", ar:"فم", read:"fam"},
+{it:"il dente", en:"tooth", ru:"зуб", ko:"이", ar:"سن", read:"sinn"},
+{it:"la lingua", en:"tongue", ru:"язык", ko:"혀", ar:"لسان", read:"lisān"},
+{it:"il collo", en:"neck", ru:"шея", ko:"목", ar:"رقبة", read:"raqaba"},
+{it:"la spalla", en:"shoulder", ru:"плечо", ko:"어깨", ar:"كتف", read:"katif"},
+{it:"il braccio", en:"arm", ru:"рука", ko:"팔", ar:"ذراع", read:"dhirāʿ"},
+{it:"la mano", en:"hand", ru:"кисть / рука", ko:"손", ar:"يد", read:"yad"},
+{it:"il dito", en:"finger", ru:"палец", ko:"손가락", ar:"إصبع", read:"iṣbaʿ"},
+{it:"la gamba", en:"leg", ru:"нога", ko:"다리", ar:"ساق", read:"sāq"},
+{it:"il piede", en:"foot", ru:"стопа", ko:"발", ar:"قدم", read:"qadam"}
+
+],
+
+family: [
+
+{it:"la madre", en:"mother", ru:"мать", ko:"어머니", ar:"الأم", read:"al-umm"},
+{it:"il padre", en:"father", ru:"отец", ko:"아버지", ar:"الأب", read:"al-ab"},
+{it:"i genitori", en:"parents", ru:"родители", ko:"부모님", ar:"الوالدان", read:"al-wālidan"},
+{it:"la sorella", en:"sister", ru:"сестра", ko:"언니 / 누나", ar:"أخت", read:"ukht"},
+{it:"il fratello", en:"brother", ru:"брат", ko:"형제", ar:"أخ", read:"akh"},
+{it:"la figlia", en:"daughter", ru:"дочь", ko:"딸", ar:"ابنة", read:"ibna"},
+{it:"il figlio", en:"son", ru:"сын", ko:"아들", ar:"ابن", read:"ibn"},
+{it:"la nonna", en:"grandmother", ru:"бабушка", ko:"할머니", ar:"الجدة", read:"al-jadda"},
+{it:"il nonno", en:"grandfather", ru:"дедушка", ko:"할아버지", ar:"الجد", read:"al-jadd"},
+{it:"la zia", en:"aunt", ru:"тётя", ko:"이모 / 고모", ar:"عمة / خالة", read:"ʿamma / khāla"},
+{it:"lo zio", en:"uncle", ru:"дядя", ko:"삼촌", ar:"عم / خال", read:"ʿamm / khāl"},
+{it:"la cugina", en:"female cousin", ru:"двоюродная сестра", ko:"사촌", ar:"ابنة العم", read:"ibnat al-ʿamm"},
+{it:"il cugino", en:"male cousin", ru:"двоюродный брат", ko:"사촌", ar:"ابن العم", read:"ibn al-ʿamm"},
+{it:"la moglie", en:"wife", ru:"жена", ko:"아내", ar:"زوجة", read:"zawja"},
+{it:"il marito", en:"husband", ru:"муж", ko:"남편", ar:"زوج", read:"zawj"}
+
+],
+
+colors: [
+
+{it:"rosso", en:"red", ru:"красный", ko:"빨간색", ar:"أحمر", read:"aḥmar"},
+{it:"blu", en:"blue", ru:"синий", ko:"파란색", ar:"أزرق", read:"azraq"},
+{it:"verde", en:"green", ru:"зелёный", ko:"초록색", ar:"أخضر", read:"akhḍar"},
+{it:"giallo", en:"yellow", ru:"жёлтый", ko:"노란색", ar:"أصفر", read:"aṣfar"},
+{it:"nero", en:"black", ru:"чёрный", ko:"검은색", ar:"أسود", read:"aswad"},
+{it:"bianco", en:"white", ru:"белый", ko:"흰색", ar:"أبيض", read:"abyaḍ"},
+{it:"arancione", en:"orange", ru:"оранжевый", ko:"주황색", ar:"برتقالي", read:"burtuqālī"},
+{it:"rosa", en:"pink", ru:"розовый", ko:"분홍색", ar:"وردي", read:"wardī"},
+{it:"viola", en:"purple", ru:"фиолетовый", ko:"보라색", ar:"banafsajī"},
+{it:"marrone", en:"brown", ru:"коричневый", ko:"갈색", ar:"بني", read:"bunnī"},
+{it:"grigio", en:"gray", ru:"серый", ko:"회색", ar:"رمادي", read:"ramādī"},
+{it:"azzurro", en:"light blue", ru:"голубой", ko:"하늘색", ar:"أزرق فاتح", read:"azraq fātiḥ"},
+{it:"oro", en:"gold", ru:"золотой", ko:"금색", ar:"ذهبي", read:"dhahabī"},
+{it:"argento", en:"silver", ru:"серебряный", ko:"은색", ar:"فضي", read:"fiḍḍī"},
+{it:"beige", en:"beige", ru:"бежевый", ko:"베이지색", ar:"بيج", read:"bīj"}
+
+],
+
+professions: [
+
+{it:"il medico", en:"doctor", ru:"врач", ko:"의사", ar:"طبيب", read:"ṭabīb"},
+{it:"l'insegnante", en:"teacher", ru:"учитель", ko:"교사", ar:"معلّم", read:"muʿallim"},
+{it:"l'infermiere", en:"nurse", ru:"медбрат", ko:"간호사", ar:"ممرّض", read:"mumarrid"},
+{it:"l'avvocato", en:"lawyer", ru:"адвокат", ko:"변호사", ar:"محامي", read:"muḥāmī"},
+{it:"l'ingegnere", en:"engineer", ru:"инженер", ko:"엔지니어", ar:"مهندس", read:"muhandis"},
+{it:"l'architetto", en:"architect", ru:"архитектор", ko:"건축가", ar:"مهندس معماري", read:"muhandis miʿmārī"},
+{it:"il cuoco", en:"cook / chef", ru:"повар", ko:"요리사", ar:"طباخ", read:"ṭabbākh"},
+{it:"il cameriere", en:"waiter", ru:"официант", ko:"웨이터", ar:"نادل", read:"nādal"},
+{it:"il poliziotto", en:"police officer", ru:"полицейский", ko:"경찰관", ar:"شرطي", read:"shurṭī"},
+{it:"il pompiere", en:"firefighter", ru:"пожарный", ko:"소방관", ar:"رجل إطفاء", read:"rajul iṭfāʾ"},
+{it:"il giornalista", en:"journalist", ru:"журналист", ko:"기자", ar:"صحفي", read:"ṣuḥufī"},
+{it:"lo scrittore", en:"writer", ru:"писатель", ko:"작가", ar:"كاتب", read:"kātib"},
+{it:"il fotografo", en:"photographer", ru:"фотограф", ko:"사진작가", ar:"مصور", read:"muṣawwir"},
+{it:"il traduttore", en:"translator", ru:"переводчик", ko:"번역가", ar:"مترجم", read:"mutarjim"},
+{it:"il programmatore", en:"programmer", ru:"программист", ko:"프로그래머", ar:"مبرمج", read:"mubarmij"}
+
+]
+
+};
+
+
+/* =========================
+   APP STATE
+========================= */
+
+let currentCategory = "";
+let currentMode = "learn";
+let currentIndex = 0;
+
+let quizWords = [];
+let questionNumber = 0;
+let score = 0;
+
+let mistakes = JSON.parse(localStorage.getItem("mistakes")) || [];
+
+
+/* =========================
+   OPEN CATEGORY
+========================= */
+
+function openCategory(category) {
+
+    currentCategory = category;
+    currentIndex = 0;
+
+    document.getElementById("home").style.display = "none";
+    document.getElementById("main").style.display = "block";
+
+    const titles = {
+        fruits:"🍎 Fruits",
+        animals:"🐾 Animals",
+        body:"🫀 Body Parts",
+        family:"👨‍👩‍👧 Family",
+        colors:"🎨 Colors",
+        professions:"👩‍💼 Professions"
+    };
+
+    document.getElementById("categoryTitle").innerText = titles[category];
+
+    setMode("learn");
+}
+
+
+/* =========================
+   HOME
+========================= */
+
+function goHome() {
+
+    document.getElementById("main").style.display = "none";
+    document.getElementById("home").style.display = "block";
+
+}
+
+
+/* =========================
+   MODE
+========================= */
+
+function setMode(mode) {
+
+    currentMode = mode;
+
+    document.querySelectorAll(".mode-buttons button")
+        .forEach(btn => btn.classList.remove("active"));
+
+    if(mode === "learn")
+        document.getElementById("learnBtn").classList.add("active");
+
+    if(mode === "quiz")
+        document.getElementById("quizBtn").classList.add("active");
+
+    if(mode === "reverse")
+        document.getElementById("reverseBtn").classList.add("active");
+
+    if(mode === "mix")
+        document.getElementById("mixBtn").classList.add("active");
+
+
+    if(mode === "learn") showLearn();
+
+    if(mode === "quiz") startQuiz(false);
+
+    if(mode === "reverse") startQuiz(true);
+
+    if(mode === "mix") startQuiz("mix");
+}
+
+
+/* =========================
+   LEARN
+========================= */
+
+function showLearn() {
+
+    const words = vocabulary[currentCategory];
+    const word = words[currentIndex];
+
+    document.getElementById("content").innerHTML = `
+
+        <div class="card">
+
+            <div class="italian">
+                🇮🇹 ${word.it}
+            </div>
+
+            <div class="translation">
+
+                <div>
+                    <span>🇬🇧 English</span>
+                    ${word.en}
+                </div>
+
+                <div>
+                    <span>🇷🇺 Russian</span>
+                    ${word.ru}
+                </div>
+
+                <div>
+                    <span>🇰🇷 Korean</span>
+                    ${word.ko}
+                </div>
+
+                <div>
+                    <span>🇸🇦 Arabic</span>
+                    ${word.ar}<br>
+                    <small>${word.read}</small>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="nav">
+
+            <button onclick="previousWord()">← Previous</button>
+
+            <span>
+                ${currentIndex + 1} / ${words.length}
+            </span>
+
+            <button onclick="nextWord()">Next →</button>
+
+        </div>
+
+    `;
+}
+
+
+function nextWord() {
+
+    const words = vocabulary[currentCategory];
+
+    currentIndex++;
+
+    if(currentIndex >= words.length)
+        currentIndex = 0;
+
+    showLearn();
+}
+
+
+function previousWord() {
+
+    const words = vocabulary[currentCategory];
+
+    currentIndex--;
+
+    if(currentIndex < 0)
+        currentIndex = words.length - 1;
+
+    showLearn();
+}
+
+
+/* =========================
+   QUIZ
+========================= */
+
+function startQuiz(reverseMode) {
+
+    quizWords = [...vocabulary[currentCategory]];
+
+    quizWords.sort(() => Math.random() - 0.5);
+
+    questionNumber = 0;
+    score = 0;
+
+    showQuestion(reverseMode);
+}
+
+
+function showQuestion(reverseMode) {
+
+    if(questionNumber >= quizWords.length) {
+
+        showQuizResult();
+        return;
+    }
+
+    const word = quizWords[questionNumber];
+
+    let question;
+    let correct;
+
+    if(reverseMode === true) {
+
+        const languages = ["en","ru","ko","ar"];
+
+        const lang = languages[Math.floor(Math.random() * languages.length)];
+
+        question = word[lang];
+        correct = word.it;
+
+    }
+
+    else if(reverseMode === "mix") {
+
+        const languages = ["en","ru","ko","ar"];
+
+        const lang = languages[Math.floor(Math.random() * languages.length)];
+
+        question = word[lang];
+        correct = word.it;
+
+    }
+
+    else {
+
+        question = word.it;
+
+        const languages = ["en","ru","ko","ar"];
+
+        const lang = languages[Math.floor(Math.random() * languages.length)];
+
+        correct = word[lang];
+    }
+
+
+    let options = generateOptions(correct, word, reverseMode);
+
+    document.getElementById("content").innerHTML = `
+
+        <div class="card">
+
+            <div class="question">
+
+                <small>Question ${questionNumber + 1} / ${quizWords.length}</small>
+
+                ${question}
+
+            </div>
+
+            <div class="answers">
+
+                ${options.map((option, index) => `
+
+                    <button
+                        class="answer-btn"
+                        onclick="checkAnswer(this, '${escapeText(option)}', '${escapeText(correct)}')">
+
+                        ${option}
+
+                    </button>
+
+                `).join("")}
+
+            </div>
+
+            <div id="result" class="result"></div>
+
+        </div>
+    `;
+}
+
+
+/* =========================
+   OPTIONS
+========================= */
+
+function generateOptions(correct, word, reverseMode) {
+
+    let options = [correct];
+
+    let pool = vocabulary[currentCategory];
+
+    while(options.length < 4) {
+
+        let randomWord = pool[Math.floor(Math.random() * pool.length)];
+
+        let candidate;
+
+        if(reverseMode === true || reverseMode === "mix") {
+
+            candidate = randomWord.it;
+
+        } else {
+
+            const languages = ["en","ru","ko","ar"];
+
+            const lang = languages[Math.floor(Math.random() * languages.length)];
+
+            candidate = randomWord[lang];
+        }
+
+        if(!options.includes(candidate))
+            options.push(candidate);
+    }
+
+    return options.sort(() => Math.random() - 0.5);
+}
+
+
+/* =========================
+   CHECK ANSWER
+========================= */
+
+function checkAnswer(button, selected, correct) {
+
+    const buttons = document.querySelectorAll(".answer-btn");
+
+    buttons.forEach(btn => btn.disabled = true);
+
+    if(selected === correct) {
+
+        button.classList.add("correct");
+
+        score++;
+
+        document.getElementById("result").innerHTML =
+            "✅ Correct!";
+
+    } else {
+
+        button.classList.add("wrong");
+
+        buttons.forEach(btn => {
+
+            if(btn.innerText.trim() === correct)
+                btn.classList.add("correct");
+
+        });
+
+        document.getElementById("result").innerHTML =
+            "❌ Correct answer: " + correct;
+
+        saveMistake(quizWords[questionNumber]);
+    }
+
+    setTimeout(() => {
+
+        questionNumber++;
+
+        showQuestion(
+            currentMode === "reverse"
+                ? true
+                : currentMode === "mix"
+                    ? "mix"
+                    : false
+        );
+
+    }, 900);
+}
+
+
+/* =========================
+   MISTAKES
+========================= */
+
+function saveMistake(word) {
+
+    if(!mistakes.some(x => x.it === word.it)) {
+
+        mistakes.push(word);
+
+        localStorage.setItem(
+            "mistakes",
+            JSON.stringify(mistakes)
+        );
+    }
+}
+
+
+function showMistakes() {
+
+    document.getElementById("home").style.display = "none";
+    document.getElementById("main").style.display = "block";
+
+    document.getElementById("categoryTitle").innerText =
+        "❌ Mistakes";
+
+    document.querySelector(".mode-buttons").style.display = "none";
+
+    if(mistakes.length === 0) {
+
+        document.getElementById("content").innerHTML = `
+
+            <div class="card">
+
+                <h2>🎉 No mistakes!</h2>
+
+                <p style="margin-top:15px">
+                    You haven't made any mistakes yet.
+                </p>
+
+            </div>
+        `;
+
+        return;
+    }
+
+    document.getElementById("content").innerHTML = `
+
+        <div class="card">
+
+            ${mistakes.map(word => `
+
+                <div style="
+                    padding:15px;
+                    margin:8px 0;
+                    background:#f3f7f4;
+                    border-radius:12px;
+                    text-align:left;
+                ">
+
+                    <strong>🇮🇹 ${word.it}</strong><br>
+
+                    🇬🇧 ${word.en} ·
+                    🇷🇺 ${word.ru} ·
+                    🇰🇷 ${word.ko} ·
+                    🇸🇦 ${word.ar}
+
+                </div>
+
+            `).join("")}
+
+            <br>
+
+            <button
+                class="restart-btn"
+                onclick="clearMistakes()">
+
+                Clear mistakes
+
+            </button>
+
+        </div>
+    `;
+}
+
+
+function clearMistakes() {
+
+    mistakes = [];
+
+    localStorage.removeItem("mistakes");
+
+    showMistakes();
+}
+
+
+/* =========================
+   PROGRESS
+========================= */
+
+function showProgress() {
+
+    document.getElementById("home").style.display = "none";
+    document.getElementById("main").style.display = "block";
+
+    document.getElementById("categoryTitle").innerText =
+        "📊 My Progress";
+
+    document.querySelector(".mode-buttons").style.display = "none";
+
+    let total = 0;
+
+    Object.values(vocabulary).forEach(category => {
+        total += category.length;
+    });
+
+    let mistakeCount = mistakes.length;
+
+    let learned = Math.max(0, total - mistakeCount);
+
+    let percentage = Math.round((learned / total) * 100);
+
+    document.getElementById("content").innerHTML = `
+
+        <div class="progress-box">
+
+            <h2>${percentage}%</h2>
+
+            <p>${learned} / ${total} words</p>
+
+            <div class="progress-bar">
+
+                <div
+                    class="progress-fill"
+                    style="width:${percentage}%">
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="card">
+
+            <h3>Keep going! 🌱</h3>
+
+            <p style="margin-top:10px">
+                Review your mistakes and test yourself again.
+            </p>
+
+        </div>
+    `;
+}
+
+
+/* =========================
+   QUIZ RESULT
+========================= */
+
+function showQuizResult() {
+
+    const percentage =
+        Math.round((score / quizWords.length) * 100);
+
+    document.getElementById("content").innerHTML = `
+
+        <div class="card">
+
+            <h1>${score} / ${quizWords.length}</h1>
+
+            <h2 style="margin-top:15px">
+                ${percentage}%
+            </h2>
+
+            <p style="margin:20px 0">
+
+                ${
+                    percentage >= 90
+                    ? "🔥 Excellent!"
+                    : percentage >= 70
+                    ? "👏 Good job!"
+                    : "🌱 Keep practicing!"
+                }
+
+            </p>
+
+            <button
+                class="restart-btn"
+                onclick="setMode('${currentMode}')">
+
+                Try Again
+
+            </button>
+
+        </div>
+    `;
+}
+
+
+/* =========================
+   ESCAPE TEXT
+========================= */
+
+function escapeText(text) {
+
+    return text
+        .replace(/\\/g, "\\\\")
+        .replace(/'/g, "\\'")
+        .replace(/"/g, '\\"');
+}
+
+
+/* =========================
+   FIX HOME MODES
+========================= */
+
+function goHome() {
+
+    document.getElementById("main").style.display = "none";
+    document.getElementById("home").style.display = "block";
+
+    document.querySelector(".mode-buttons").style.display = "flex";
+}
+
+
+/* =========================
+   START
+========================= */
+
+</script>
+
+</body>
+</html>
